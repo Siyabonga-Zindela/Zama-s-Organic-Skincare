@@ -1,3 +1,7 @@
+body{
+    margin-left: 2%;
+    margin-right: 2%;
+}
 .grid-wrapper{
     display: grid;
     grid-template-columns: 1fr;
@@ -6,8 +10,10 @@
                          "hero-section"
                          "our-story"
                          "products-wrapper"
+                         "reviews"
+                         "footer"
                          ;
-    margin: 5px;
+    
     width: 100%;
 }
 
@@ -16,6 +22,11 @@
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    padding-top: 10px ;
+    padding-bottom: 7px;
 }
 
 .logo {
@@ -64,12 +75,21 @@ h2{
     line-height: 1.6;
     font-size: 1.5rem;
     line-height: 1.6;
+    margin-bottom: 20%;
 }
+hr{
+    
+    border: 0.1px solid #995200 ;
+}
+
+/*Products*/
 .products-cards-wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit,minmax(0.5fr,1fr));
     grid-template-rows: auto;
     gap: 2rem;
+    width: 94%;
 }
 
 .product-card {
@@ -104,4 +124,55 @@ h2{
 .addToCart a{
     height: 30px;
     width: 30px;
+}
+
+
+/*Reviews*/
+.reviews{
+    margin-top: 20%;
+}
+.reviews-wraper{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.reviews-wraper img{
+    height: 10%;
+    width: 10%;
+}
+.reviews-cards{
+    
+    border: 0.1px solid #995200 ;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h6{
+    text-align: center;
+    color: grey;
+    font-size: medium;
+}
+
+.footer{
+    text-align: center;
+    margin-top: 20%;
+    background-color: #995200;
+    color: white;
+}
+.footer-text{
+    color: #c5c5c56c;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+.footer-header{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.cell-number{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.footer-text a{
+    color: #c5c5c56c;
 }
