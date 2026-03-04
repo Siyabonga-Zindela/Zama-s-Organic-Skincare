@@ -11,15 +11,42 @@
   </head>
   <body>
     <div class="grid-wrapper">
+      <!--Nav Bar-->
       <div class="nav-bar">
         <img
           src="assets/zamas-logo.png"
           alt="Zama's Organic skincare Logo"
           class="logo"
         />
-        <img src="assets/menu-icon.png" />
+        <img src="assets/menu-icon.png" id="btn-menu" />
       </div>
-
+      <div class="sidebar-list">
+        <div>
+          <a href="#"
+            ><img
+              src="assets/icons-close-sidebar.gif"
+              alt="Close"
+              id="btn-close-sidebar"
+          /></a>
+        </div>
+        <div class="menu-item">
+          <a href="#"><img src="assets/icons-home.png" alt="Home" />Home</a>
+        </div>
+        <div class="menu-item">
+          <a href="#"
+            ><img
+              src="assets/icons-catalogue.png"
+              alt="Catalogue"
+            />Catalogue</a
+          >
+        </div>
+        <div class="menu-item">
+          <a href="#"><img src="assets/icons-cart.png" alt="cart" />Cart</a>
+        </div>
+        <div class="menu-item">
+          <a href="#"><img src="assets/icons-about.png" alt="About" />About</a>
+        </div>
+      </div>
       <!--Hero section-->
       <section class="hero-section">
         <div class="home-title">
@@ -179,5 +206,6 @@
         </div>
       </section>
     </div>
+    <script src="js/javascript.js"></script>
   </body>
 </html>
