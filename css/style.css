@@ -231,6 +231,7 @@ h6{
     margin-top: 20%;
     background-color: #995200;
     color: white;
+    height: fit-content;
     width: 100%;
 }
 .footer-text{
@@ -242,6 +243,7 @@ h6{
 .footer-header{
     font-size: 2rem;
     font-weight: bolder;
+    
 }
 .cell-number{
     font-size: 1.5rem;
