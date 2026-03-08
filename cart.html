@@ -13,7 +13,11 @@
     <div class="grid-wrapper">
       <!--Nav Bar-->
       <div class="nav-bar">
-        <img src="assets/cart-icon.png" alt="Cart icon" />
+        <div class="tot-cart-items">
+          <img src="assets/cart-icon.png" alt="Cart icon" class="cart-icon" />
+          <span id="tot-cart-items">1</span>
+        </div>
+
         <h2>Your cart</h2>
         <img src="assets/menu-icon.png" id="btn-menu" />
       </div>
@@ -49,10 +53,28 @@
 
       <section class="cart-wrapper">
         <div class="cart-item">
+          <div class="cart-image-wrapper">
+            <img src="assets/face-body-scrub.png" alt="" />
+          </div>
 
+          <div class="product-description">
+            <p class="product-name">Facebody Scrub</p>
+            <p class="product-price">R100</p>
+            <p class="quantity">Quantity:</p>
+          </div>
+          <div class="delete">
+            <a href="carrot-oil-details.html"
+              ><img
+                src="assets/delete-icon .png"
+                alt="delete-icon"
+                id="delete-item-from-cart"
+            /></a>
+          </div>
         </div>
       </section>
-
+      <section class="order-summary">
+        <!--To be countinued-->
+      </section>
       <!--Footer-->
       <section class="footer">
         <div class="footer-wrapper">
@@ -69,6 +91,7 @@
         </div>
       </section>
     </div>
+    <script src="data/products.js"></script>
     <script src="js/javascript.js"></script>
   </body>
 </html>

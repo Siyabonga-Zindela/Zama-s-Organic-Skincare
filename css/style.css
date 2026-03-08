@@ -5,7 +5,7 @@ body{
 .grid-wrapper{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: auto auto auto 1fr auto auto;
     grid-template-areas: "nav-bar"
                          "hero-section"
                          "our-story"
@@ -15,6 +15,7 @@ body{
                          ;
     
     width: 100%;
+    min-height:100vh;
 }
 
 .nav-bar{
@@ -231,8 +232,9 @@ h6{
     margin-top: 20%;
     background-color: #995200;
     color: white;
-    height: fit-content;
+    height: auto;
     width: 100%;
+    
 }
 .footer-text{
     color: #c5c5c56c;
@@ -252,3 +254,58 @@ h6{
 .footer-text a{
     color: #c5c5c56c;
 }
+
+
+/* cart stylings  */
+.cart-wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height:80vh;
+    width: 100%;
+    
+}
+.cart-item{
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    align-items: center;
+    background-color: #e6e3e3;
+    line-height: 5px;
+    border-radius: 10px;
+}
+.cart-image-wrapper{
+    height: auto;
+    width: 90px;
+}
+.cart-item img{
+    height: auto;
+    width: 100%;
+}
+.tot-cart-items{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+#tot-cart-items{
+    height: 20px;
+    width: 20px;
+    border-radius: 7.5px;  
+    background-color: #995200;
+    color: white;
+    font-size: 0.8rem;
+
+    position: absolute;
+    top: 0px;
+    right: -10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-icon{
+    height: 50px;
+    width: 50px;
+}
+
