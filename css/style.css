@@ -123,6 +123,7 @@ h2 {
 }
 hr {
   border: 0.1px solid #995200;
+  margin-top: 20%;
 }
 
 /*Products*/
@@ -131,21 +132,21 @@ hr {
   grid-template-columns: 1fr 1fr;
   grid-template-columns: repeat(auto-fit, minmax(0.5fr, 1fr));
   grid-template-rows: auto;
-  gap: 2rem;
-  width: 94%;
+  gap: 1rem;
+  width: 100%;
 }
 
 .product-card {
   background-color: #c5c5c56c;
   width: 100%;
-  height: fit-content;
+  height: 100%;
   justify-items: center;
-  padding: 10px;
+  padding-bottom: 10px;
   border-radius: 10px;
 }
 .product-card img {
-  width: 100%;
   height: auto;
+  width: 100%;
 }
 .product-description {
   text-align: center;
@@ -190,8 +191,9 @@ hr {
 }
 .product-description-paragraph {
   color: #9e9c9c;
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-align: center;
+  margin-top: 20%;
 }
 
 /*Reviews*/
