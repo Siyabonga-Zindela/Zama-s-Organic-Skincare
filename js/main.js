@@ -2,68 +2,74 @@ let btnMenu = document.getElementById("btn-menu");
 let sideBar = document.querySelector(".sidebar-list");
 let closeSideBar = document.getElementById("btn-close-sidebar");
 
-
-btnMenu.addEventListener("click", () => {
-    if (sideBar.style.right === "-225px") {
-        sideBar.style.right = "0px";
-        
+/* =========================
+   SIDEBAR
+========================= */
+if (btnMenu && sideBar) {
+  btnMenu.addEventListener("click", () => {
+    if (sideBar.style.right === "-225px" || sideBar.style.right === "") {
+      sideBar.style.right = "0px";
     } else {
-        sideBar.style.right = "-225px";
+      sideBar.style.right = "-225px";
     }
-});
+  });
+}
 
-
-closeSideBar.addEventListener("click", ()=>{
-    if(sideBar.style.right==="0px"){
-        sideBar.style.right = "-225px";
-    }else{
-        sideBar.style.right ="0px";
+if (closeSideBar && sideBar) {
+  closeSideBar.addEventListener("click", () => {
+    if (sideBar.style.right === "0px") {
+      sideBar.style.right = "-225px";
+    } else {
+      sideBar.style.right = "0px";
     }
-})
+  });
+}
 
+/* =========================
+   PRODUCTS PAGE
+========================= */
 let addProductHTML = "";
 
-products.forEach((product)=>{
+if (typeof products !== "undefined") {
+  products.forEach((product) => {
     addProductHTML += `
-        <div class="product-card">
-            <img src="${product.image}" alt="${product.altText}" />
+      <div class="product-card">
+        <img src="${product.image}" alt="${product.altText}" />
 
-            <div class="product-description">
-              <p class="product-name">${product.name}</p>
-              <p class="product-price">R${product.price}</p>
-            </div>
-            <div class="addToCart">
-              <a href="product-details.html?product=${product.name}"
-                ><img src="assets/add-to-cart.png" alt="Add to cart icon"
-              /></a>
-            </div>
-          </div>
+        <div class="product-description">
+          <p class="product-name">${product.name}</p>
+          <p class="product-price">R${product.price}</p>
+        </div>
+
+        <div class="addToCart">
+          <a href="product-details.html?product=${encodeURIComponent(product.name)}">
+            <img src="assets/add-to-cart.png" alt="Add to cart icon" />
+          </a>
+        </div>
+      </div>
     `;
-   
-})
-
- 
+  });
+}
 
 let productsCardsWraper = document.getElementById("js-products-cards-wrapper");
 
-    
-if (productsCardsWraper){
+if (productsCardsWraper) {
   productsCardsWraper.innerHTML = addProductHTML;
-} 
+}
 
+/* =========================
+   PRODUCT DETAILS PAGE
+========================= */
 const productWrapper = document.getElementById("product-wrapper");
 
-if (productWrapper) {
-
+if (productWrapper && typeof products !== "undefined") {
   const getOneProduct = new URLSearchParams(window.location.search);
   const productName = getOneProduct.get("product");
 
   let productDescriptionsHTML = "";
 
-  products.forEach(product => {
-
+  products.forEach((product) => {
     if (product.name === productName) {
-
       productDescriptionsHTML += `
         <div class="product-card">
           <img src="${product.image}" alt="${product.altText}" />
@@ -74,10 +80,18 @@ if (productWrapper) {
           </div>
 
           <div class="numItems-wrapper">
-            <input type="number" class="numItems" placeholder="1"/>
-
+            <input type="number" class="numItems" value="1" min="1" />
+            
             <div class="addToCart">
-              <a href="#">I WANT ONE</a>
+              <a 
+                href="cart.html" 
+                class="btnIwantOne" 
+                data-product-name="${product.name}" 
+                data-image="${product.image}" 
+                data-price="${product.price}"
+              >
+                I WANT ONE
+              </a>
             </div>
           </div>
         </div>
@@ -87,10 +101,101 @@ if (productWrapper) {
         </p>
       `;
     }
-
   });
 
   productWrapper.innerHTML = productDescriptionsHTML;
-
 }
 
+let btnIwantOne = document.querySelectorAll(".btnIwantOne");
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+btnIwantOne.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    let productName = button.dataset.productName;
+    let image = button.dataset.image;
+    let price = button.dataset.price;
+
+    let quantityInput = document.querySelector(".numItems");
+    let quantity = Number(quantityInput.value);
+
+    if (!quantity || quantity < 1) {
+      quantity = 1;
+    }
+
+    let matchingItem = cartItems.find((item) => item.Name === productName);
+
+    if (matchingItem) {
+      matchingItem.productQuantity += quantity;
+    } else {
+      cartItems.push({
+        productImg: image,
+        Name: productName,
+        productPrice: price,
+        productQuantity: quantity
+      });
+    }
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    window.location.href = "cart.html";
+  });
+});
+
+
+function displayCart() {
+  let cartWrapper = document.querySelector(".cart-wrapper");
+
+  if (!cartWrapper) return;
+
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  let cartItemHTML = "";
+
+  if (cartItems.length === 0) {
+    cartWrapper.innerHTML = `<p class="empty-cart">Your cart is empty.</p>`;
+    return;
+  }
+
+  cartItems.forEach((item, index) => {
+    cartItemHTML += `
+      <div class="cart-item">
+        <div class="cart-image-wrapper">
+          <img src="${item.productImg}" alt="${item.Name}" />
+        </div>
+
+        <div class="product-description">
+          <p class="product-name">${item.Name}</p>
+          <p class="product-price">R${item.productPrice}</p>
+          <p class="quantity">Quantity: ${item.productQuantity}</p>
+        </div>
+
+        <div class="delete">
+          <button class="delete-item-btn" data-index="${index}">
+            <img src="assets/delete-icon .png" alt="delete-icon" />
+          </button>
+        </div>
+      </div>
+    `;
+  });
+
+  cartWrapper.innerHTML = cartItemHTML;
+
+  let deleteButtons = document.querySelectorAll(".delete-item-btn");
+
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      let index = button.dataset.index;
+      removeCartItem(index);
+    });
+  });
+}
+
+
+function removeCartItem(index) {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cartItems.splice(index, 1);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  displayCart();
+}
+
+displayCart();
