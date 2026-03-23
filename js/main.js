@@ -162,7 +162,7 @@ function displayCart() {
           <img src="${item.productImg}" alt="${item.Name}" />
         </div>
 
-        <div class="product-description">
+        <div class="cart-product-description">
           <p class="product-name">${item.Name}</p>
           <p class="product-price">R${item.productPrice}</p>
           <p class="quantity">Quantity: ${item.productQuantity}</p>
