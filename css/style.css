@@ -349,6 +349,11 @@ h6 {
 }
 
 select{
-  width: 210px;
+  width: 200px;
   height: 35px;
+}
+.grey-paragraph{
+  color: #9e9c9c;
+  text-align: center;
+  font-size: 0.8rem;
 }
