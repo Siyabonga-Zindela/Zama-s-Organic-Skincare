@@ -2,12 +2,9 @@ let btnMenu = document.getElementById("btn-menu");
 let sideBar = document.querySelector(".sidebar-list");
 let closeSideBar = document.getElementById("btn-close-sidebar");
 
-/* =========================
-   SIDEBAR
-========================= */
 if (btnMenu && sideBar) {
   btnMenu.addEventListener("click", () => {
-    if (sideBar.style.right === "-225px" || sideBar.style.right === "") {
+    if (sideBar.style.right === "-225px") {
       sideBar.style.right = "0px";
     } else {
       sideBar.style.right = "-225px";
@@ -25,9 +22,7 @@ if (closeSideBar && sideBar) {
   });
 }
 
-/* =========================
-   PRODUCTS PAGE
-========================= */
+
 let addProductHTML = "";
 
 if (typeof products !== "undefined") {
@@ -42,7 +37,7 @@ if (typeof products !== "undefined") {
         </div>
 
         <div class="addToCart">
-          <a href="product-details.html?product=${encodeURIComponent(product.name)}">
+          <a href="product-details.html?product=${product.name}">
             <img src="assets/add-to-cart.png" alt="Add to cart icon" />
           </a>
         </div>
@@ -57,9 +52,7 @@ if (productsCardsWraper) {
   productsCardsWraper.innerHTML = addProductHTML;
 }
 
-/* =========================
-   PRODUCT DETAILS PAGE
-========================= */
+
 const productWrapper = document.getElementById("product-wrapper");
 
 if (productWrapper && typeof products !== "undefined") {
@@ -108,6 +101,7 @@ if (productWrapper && typeof products !== "undefined") {
 
 let btnIwantOne = document.querySelectorAll(".btnIwantOne");
 let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+let totCartItems = document.getElementById("#tot-cart-items");
 
 btnIwantOne.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -119,15 +113,16 @@ btnIwantOne.forEach((button) => {
 
     let quantityInput = document.querySelector(".numItems");
     let quantity = Number(quantityInput.value);
-
+    
     if (!quantity || quantity < 1) {
       quantity = 1;
     }
-
+    
     let matchingItem = cartItems.find((item) => item.Name === productName);
 
     if (matchingItem) {
       matchingItem.productQuantity += quantity;
+      
     } else {
       cartItems.push({
         productImg: image,
@@ -135,12 +130,16 @@ btnIwantOne.forEach((button) => {
         productPrice: price,
         productQuantity: quantity
       });
+      
     }
-
+    
+    totCartItems += quantity;
+    totCartItems.textContent = totCartItems;
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     window.location.href = "cart.html";
   });
 });
+
 
 
 function displayCart() {

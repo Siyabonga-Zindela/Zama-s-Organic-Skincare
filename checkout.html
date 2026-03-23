@@ -3,22 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zama's Organic Skincare</title>
+    <title>Checkout</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
-    />
   </head>
   <body>
     <div class="grid-wrapper">
       <!--Nav Bar-->
       <div class="nav-bar">
-        <div class="tot-cart-items">
-          <img src="assets/cart-icon.png" alt="Cart icon" class="cart-icon" />
-          <span id="tot-cart-items"></span>
-        </div>
-
-        <h2>Your cart</h2>
+        <img
+          src="assets/zamas-logo.png"
+          alt="Zama's Organic skincare Logo"
+          class="logo"
+        />
         <img src="assets/menu-icon.png" id="btn-menu" />
       </div>
       <div class="sidebar-list">
@@ -53,15 +49,65 @@
         </div>
       </div>
 
-      <section class="cart-wrapper">
-        <!--Loading cartItems-->
+      <section class="products-wrapper">
+        <h2>Checkout</h2>
+        <hr />
+        <h3>Billing Details</h3>
+        <div class="form-wrapper">
+          <!--Description of the product-->
+          <form action="" class="form">
+            <div class="form-inputs">
+              <input
+                type="text"
+                name="name"
+                id="firstName"
+                placeholder="First name"
+                required
+              />
+            </div>
+            <div class="form-inputs">
+              <input
+                type="text"
+                name="name"
+                id="lastName"
+                placeholder="Last name"
+                required
+              />
+            </div>
+            <div class="form-inputs">
+              <input
+                type="text"
+                name="name"
+                id="cellNumber"
+                placeholder="Phone"
+                required
+              />
+            </div>
+            <div class="form-inputs">
+              <input
+                type="text"
+                name="name"
+                id="paxiCode"
+                placeholder="Paxi code"
+                required
+              />
+            </div>
+
+            <div class="paxiDays">
+              <label for="paxiDays">Choose paxi days:</label>
+              <select name="paxiDays" id="paxiDays" class="paxiDays">
+                <option value="3-5 Days">7 - 9 Days (R60)</option>
+                <option value="5-7 Days">3 - 5 Days (R100)</option>
+              </select>
+            </div>
+          </form>
+        </div>
       </section>
-      <div class="checkout-btn-wrapper">
-        <a class="btnCheckout" href="checkout.html">Proceed to checkout</a>
+      <hr />
+      <div class="your-order-wrapper">
+        <!--I will generate it here-->
       </div>
-      <section class="order-summary">
-        <!--To be countinued-->
-      </section>
+
       <!--Footer-->
       <section class="footer">
         <div class="footer-wrapper">
@@ -78,8 +124,6 @@
         </div>
       </section>
     </div>
-
-    <script defer src="data/products.js"></script>
-    <script defer src="js/main.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
