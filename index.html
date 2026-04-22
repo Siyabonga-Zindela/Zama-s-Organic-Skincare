@@ -11,103 +11,142 @@
   </head>
   <body>
     <div class="grid-wrapper">
-      <!--Nav Bar-->
-      <div class="nav-bar">
-        <img
-          src="assets/zamas-logo.png"
-          alt="Zama's Organic skincare Logo"
-          class="logo"
-        />
-        <img src="assets/menu-icon.png" id="btn-menu" />
-      </div>
-      <div class="sidebar-list">
-        <div>
-          <a href="#"
-            ><img
-              src="assets/icons-close-sidebar.gif"
-              alt="Close"
-              id="btn-close-sidebar"
-          /></a>
-        </div>
-        <div class="menu-item">
-          <a href="index.html"
-            ><img src="assets/icons-home.png" alt="Home" />Home</a
-          >
-        </div>
-        <div class="menu-item">
-          <a href="index.html"
-            ><img
-              src="assets/icons-catalogue.png"
-              alt="Catalogue"
-            />Catalogue</a
-          >
-        </div>
-        <div class="menu-item">
-          <a href="cart.html"
-            ><img src="assets/icons-cart.png" alt="cart" />Cart</a
-          >
-        </div>
-        <div class="menu-item">
-          <a href="#"><img src="assets/icons-about.png" alt="About" />About</a>
-        </div>
-      </div>
-      <!--Hero section-->
-      <section class="hero-section">
-        <div class="home-title">
-          <h1>
-            Healthy Skin.<br />
-            Natural Glow. Real <br />
-            Confidence.
-          </h1>
-          <a href="#catalogue-section">View Catalogue</a>
-        </div>
-        <img src="assets/home-image.png" alt="Home image" />
-      </section>
+      <header class="nav-bar">
+  <nav class="navbar-list">
+    <div class="menu-item-image">
+      <img
+        src="assets/zamas-logo.png"
+        alt="Zama's Organic skincare Logo"
+        class="logo"
+      />
+    </div>
+    <div class="menu-item">
+      <img src="assets/menu-icon.png" id="btn-menu" alt="menu" />
+    </div>
+    <div class="nav-right-items">
 
-      <!--Our story section-->
-      <section class="our-story">
-        <h2>Our Story</h2>
-        <p class="our-story-paragraph">
-          Zama’s Organic Skincare is a natural beauty brand focused on helping
-          people feel confident in their skin. Our products are made to support
-          healthy, glowing skin using gentle ingredients that work with your
-          body.<br />
-          <br />
+      <div class="menu-item">
+      <a href="index.html">
+        <img src="assets/icons-home.png" alt="Home" />
+        Home
+      </a>
+    </div>
 
-          We focus on common skin concerns such as:<br />
+    <div class="menu-item">
+      <a href="#catalogue-section">
+        <img src="assets/icons-catalogue.png" alt="Catalogue" />
+        Catalogue
+      </a>
+    </div>
 
-          Dark inner thighs Stretch marks Acne and pimples Dark spots Uneven
-          skin tone <br />
-          <br />
-          Our mission is to provide affordable, effective, and skin-friendly
-          products that help you see real results while taking care of your skin
-          naturally.
-        </p>
-        <hr />
-      </section>
+    <div class="menu-item">
+      <a href="cart.html">
+        <img src="assets/icons-cart.png" alt="Cart" />
+        Cart
+      </a>
+    </div>
+    
+    </div>
+     
+  </nav>
 
-      <section class="products-wrapper" id="catalogue-section">
-        <h2>Products</h2>
-        <div class="products-cards-wrapper" id="js-products-cards-wrapper">
-          <!-- I will dynamically load all the products here -->
-        </div>
-      </section>
+  
+  <div class="sidebar-list">
+    <a href="#" id="btn-close-sidebar">
+      <img src="assets/icons-close-sidebar.gif" alt="Close" />
+    </a>
 
-      <!--Reviews section-->
-      <section class="reviews">
-        <h2>Reviews</h2>
-        <h6>See what our customers say about our products.</h6>
-        <div class="reviews-wraper">
-          <img src="assets/btn-previous.png" alt="Previous btn" />
-          <div class="reviews-cards">
-            <h4>Coming Soon! 😊</h4>
+    <div class="menu-item">
+      <a href="index.html">
+        <img src="assets/icons-home.png" alt="Home" />
+        Home
+      </a>
+    </div>
+
+    <div class="menu-item">
+      <a href="#catalogue-section">
+        <img src="assets/icons-catalogue.png" alt="Catalogue" />
+        Catalogue
+      </a>
+    </div>
+
+    <div class="menu-item">
+      <a href="cart.html">
+        <img src="assets/icons-cart.png" alt="Cart" />
+        Cart
+      </a>
+    </div>
+
+    <div class="menu-item">
+      <a href="#our-story">
+        <img src="assets/icons-about.png" alt="About" />
+        About
+      </a>
+    </div>
+  </div>
+</header>
+      </header>
+
+      <hr class="hr" />
+
+      <main>
+        <section class="hero-section">
+          <div class="home-title">
+            <h1>
+              Healthy Skin.<br />
+              Natural Glow. Real <br />
+              Confidence.
+            </h1>
+            <a href="#catalogue-section">View Catalogue</a>
           </div>
-          <img src="assets/btn-next.png" alt="Previous btn" />
-        </div>
-      </section>
 
-      <!--Footer-->
-      <section class="footer">
+          <div class="hero-image">
+            <img src="assets/home-image.png" alt="Home image" />
+          </div>
+        </section>
+
+        <section class="our-story" id="our-story">
+          <h2>Our Story</h2>
+          <p class="our-story-paragraph">
+            Zama’s Organic Skincare is a natural beauty brand focused on helping
+            people feel confident in their skin. Our products are made to
+            support healthy, glowing skin using gentle ingredients that work
+            with your body.
+            <br /><br />
+            We focus on common skin concerns such as:<br />
+            Dark inner thighs Stretch marks Acne and pimples Dark spots Uneven
+            skin tone
+            <br /><br />
+            Our mission is to provide affordable, effective, and skin-friendly
+            products that help you see real results while taking care of your
+            skin naturally.
+          </p>
+          <hr />
+        </section>
+
+        <section class="products-wrapper" id="catalogue-section">
+          <h2>Products</h2>
+          <div
+            class="products-cards-wrapper"
+            id="js-products-cards-wrapper"
+          ></div>
+        </section>
+
+        <section class="reviews">
+          <h2>Reviews</h2>
+          <h6>See what our customers say about our products.</h6>
+
+          <div class="reviews-wraper">
+            <img src="assets/btn-previous.png" alt="Previous button" />
+            <div class="reviews-cards">
+              <h4>Coming Soon! 😊</h4>
+            </div>
+            <img src="assets/btn-next.png" alt="Next button" />
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
         <div class="footer-wrapper">
           <p class="footer-header">Contact us</p>
           <img src="assets/whatsapp-logo.png" alt="WhatsApp logo" />
@@ -115,12 +154,12 @@
           <p class="footer-text">
             ©Zama’s Organic Skincare products. All rights reserved | Developed
             with 🤍 by
-            <a href="https://siyabonga-zindela-portfolio.netlify.app/"
-              >Siyabonga Zindela</a
-            >
+            <a href="https://siyabonga-zindela-portfolio.netlify.app/">
+              Siyabonga Zindela
+            </a>
           </p>
         </div>
-      </section>
+      </footer>
     </div>
 
     <script defer src="data/products.js"></script>

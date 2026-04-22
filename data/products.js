@@ -8,6 +8,7 @@ const products = [{
         nourishes the skin, enhances natural glow, and supports a smooth,
         healthy-looking complexion. Ideal for daily skincare routines, it helps
         protect and revitalize dull or dry skin.`
+    
 },{
     image: "assets/tumeric-soap.png",
     altText:"Tumeric-soap",

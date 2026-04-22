@@ -150,7 +150,7 @@ btnIwantOne.forEach((button) => {
 
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-    updateCartCount(); 
+    updateCartCount();
 
     window.location.href = "cart.html";
   });
@@ -212,11 +212,11 @@ function removeCartItem(index) {
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
   displayCart();
 
-  updateCartCount(); 
+  updateCartCount();
 }
 
 displayCart();
-updateCartCount(); 
+updateCartCount();
 
 
 function generateOrderSummary() {
@@ -254,4 +254,19 @@ let summaryContainer = document.getElementById("order-summary");
 
 if (summaryContainer) {
   summaryContainer.innerHTML = generateOrderSummary();
+}
+
+
+function calculateTotal() {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  let totPrice = 0;
+  cartItems.forEach((item) => {
+
+    totPrice += item.productPrice;
+  })
+}
+
+let orderTotal = document.getElementById("orderTotal");
+if (orderTotal) {
+  orderTotal.textContent = calculateTotal();
 }
